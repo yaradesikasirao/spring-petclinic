@@ -3,10 +3,33 @@ pool:
   name: default
   vmImage: ubuntu latest
 
-trigger:
-  - main
-
+parameters:
+- name: maven
+  displayName: install maven@3
+  values:
+  - clean
+  - install
+  - package
+  - compile
+  default: 'package'
+  type: string
+- name: jdkversion
+  displayName: 'java Version'
+  default: '1.17'
+  type: string
+- name: pomFilePath
+  displayName: maven pom file
+  type: string
+  default : 'pom.xml'
+    
 steps:
-  - template: ./templates/maven-build.yaml
+- task: Maven@3
+  inputs:
+    mavenPOMFile: "${{ parameters.pomFilePath }}"
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    jdkVersionOption: "${{ parameters.jdkversion }}"
+    mavenVersionOption: "${{ parameters.maven }}"
+    
 
 
