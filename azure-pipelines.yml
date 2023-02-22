@@ -11,7 +11,7 @@ parameters:
   - install
   - package
   - compile
-  default: '3.8.7'
+  default: 'package'
   type: string
 - name: jdkversion
   displayName: 'java Version'
