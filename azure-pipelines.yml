@@ -28,8 +28,10 @@ steps:
     mavenPOMFile: "${{ parameters.pomFilePath }}"
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'path'
     jdkVersionOption: "${{ parameters.jdkversion }}"
-    mavenVersionOption: "${{ parameters.maven }}" 
     jdkDirectory: /usr/lib/jvm/java-17-openjdk-amd64
+    mavenVersionOption: "${{ parameters.maven }}"
+    mavenDirectory: /opt/maven
 
 
