@@ -20,7 +20,7 @@ parameters:
 - name: pomFilePath
   displayName: maven pom file
   type: string
-  default : 'pom.xl'
+  default : 'pom.xml'
     
 steps:
 - task: Maven@3
