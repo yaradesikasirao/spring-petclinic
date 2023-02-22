@@ -15,7 +15,7 @@ parameters:
   type: string
 - name: jdkversion
   displayName: 'java Version'
-  default: '1.11'
+  default: '1.17'
   type: string
 - name: pomFilePath
   displayName: maven pom file
@@ -30,6 +30,8 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     jdkVersionOption: "${{ parameters.jdkversion }}"
     mavenVersionOption: "${{ parameters.maven }}"
-    
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '1.17' 
 
 
