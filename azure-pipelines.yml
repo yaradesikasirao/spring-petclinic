@@ -13,14 +13,14 @@ parameters:
   - compile
   default: '3.8.7'
   type: string
-  - name: jdkversion
-    displayName: 'java Version'
-    default: '1.17'
-    type: string
-  - name: pomFilePath
-    displayName: maven pom file
-    type: string
-    default : 'pom.xl'
+- name: jdkversion
+  displayName: 'java Version'
+  default: '1.17'
+  type: string
+- name: pomFilePath
+  displayName: maven pom file
+  type: string
+  default : 'pom.xl'
     
 steps:
 - task: Maven@3
